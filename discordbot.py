@@ -1,5 +1,8 @@
 import datetime
-
+current_time = datetime.datetime.now().time()
+if not (datetime.time(5, 0) <= current_time < datetime.time(6, 0)):
+    print("Current time is not between 5am and 6am. Exiting.")
+    exit()
 import discord
 from discord.ext import commands, tasks
 import os
@@ -14,6 +17,9 @@ import requests_cache
 cache_session = requests_cache.CachedSession('.cache', expire_after = 3600)
 retry_session = retry(cache_session, retries = 5, backoff_factor = 0.2)
 openmeteo = openmeteo_requests.Client(session = retry_session)
+# Check if the current time is between 5am and 6am
+
+
 
 
 url = "https://api.open-meteo.com/v1/forecast"
