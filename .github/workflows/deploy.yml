@@ -1,10 +1,16 @@
 name: Deploy Discord Bot
 
-on: [push]
+on:
+  push:
+    branches:
+      - main  # or any branch you want
+  schedule:
+    - cron: '*/5 * * * *'  # Every minute (shortest possible cron interval in GitHub Actions)
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
