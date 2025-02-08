@@ -1,0 +1,15 @@
+name: Deploy Discord Bot
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Run Bot
+        env:
+          DISCORD_TOKEN: ${{ secrets.TOKEN }}
+        run: python bot.py
