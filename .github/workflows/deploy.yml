@@ -14,4 +14,4 @@ jobs:
           TOKEN: ${{ secrets.TOKEN }}
           SERVER: ${{ secrets.SERVER }}
           CHANNEL: ${{ secrets.CHANNEL }}
-        run: python bot.py
+        run: python discordbot.py
