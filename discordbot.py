@@ -34,7 +34,7 @@ async def on_ready():
 async def send_message():
     channel = client.get_channel(CHANNEL)
     if channel:
-        await channel.send("whoop")
+        await channel.send("whoopywhoop")
         await client.close()  # Exit after sending the message
 
 client.run(TOKEN)
