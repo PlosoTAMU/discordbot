@@ -30,16 +30,12 @@ async def on_ready():
 
     send_message.start()
 
-@tasks.loop(hours=24)
+@tasks.loop(seconds=3)
 async def send_message():
-    now = datetime.utcnow()
-    target_time = datetime.combine(now.date(), time(8, 0))  # 8 AM UTC
-    if now > target_time:
-        target_time += timedelta(days=1)
-    await discord.utils.sleep_until(target_time)
-
     channel = client.get_channel(CHANNEL)
     if channel:
-        await channel.send("Hello, world!")
+        await channel.send("whoop")
+        await client.close()  # Exit after sending the message
 
 client.run(TOKEN)
+
