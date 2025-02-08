@@ -5,7 +5,8 @@ on:
     branches:
       - main  # or any branch you want
   schedule:
-    - cron: '*/5 * * * *'  # Every minute (shortest possible cron interval in GitHub Actions)
+    - cron: '0 9 * * *'  # Runs at 4 AM CT (5 AM CDT during DST)
+    - cron: '0 10 * * *' # Runs at 5 AM CT (6 AM CDT during DST)
 
 jobs:
   deploy:
